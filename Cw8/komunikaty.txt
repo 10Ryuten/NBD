@@ -1,0 +1,36 @@
+CREATE DOCUMENT
+<Response [204]>
+{'Vary': 'Accept-Encoding', 'Server': 'MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)', 'Date': 'Wed, 16 Jun 2021 18:54:03 GMT', 'Content-Type': 'application/json', 'Content-Length': '0', 'Content-Encoding': 'gzip'}
+b''
+
+RETRIEVE DOCUMENT
+<Response [200]>
+{'X-Riak-Vclock': 'a85hYGBgzGDKBVI8+xkWvu9hOR/CwOCnlsGUyJjHynD6iN0tviwA', 'Vary': 'Accept-Encoding', 'Server': 'MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)', 'Link': '</buckets/s15188>; rel="up"', 'Last-Modified': 'Wed, 16 Jun 2021 18:54:03 GMT', 'ETag': '"63K8suzTPMuzbk2CNXJLG7"', 'Date': 'Wed, 16 Jun 2021 18:54:03 GMT', 'Content-Type': 'application/json', 'Content-Length': '121', 'Content-Encoding': 'gzip'}
+b'{"pytanie": "Jak ma wygladac ten dokument?", "odpowiedz": "Pewnie moze zawierac cokolwiek", "liczba": 123, "boolean": true}'
+
+PRINT RETRIEVED DOCUMENT
+{'pytanie': 'Jak ma wygladac ten dokument?', 'odpowiedz': 'Pewnie moze zawierac cokolwiek', 'liczba': 123, 'boolean': True}
+
+MODIFY DOCUMENT
+<Response [204]>
+{'Vary': 'Accept-Encoding', 'Server': 'MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)', 'Date': 'Wed, 16 Jun 2021 18:54:03 GMT', 'Content-Type': 'application/json', 'Content-Length': '0', 'Content-Encoding': 'gzip'}
+b''
+
+RETRIEVE MODIFIED DOCUMENT
+<Response [200]>
+{'X-Riak-Vclock': 'a85hYGBgzGDKBVI8+xkWvu9hOR/CwOCnlsGUyJTHynD6iN0tviwA', 'Vary': 'Accept-Encoding', 'Server': 'MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)', 'Link': '</buckets/s15188>; rel="up"', 'Last-Modified': 'Wed, 16 Jun 2021 18:54:03 GMT', 'ETag': '"7UV9wa9H0n2Xbx5f2CWaTp"', 'Date': 'Wed, 16 Jun 2021 18:54:03 GMT', 'Content-Type': 'application/json', 'Content-Length': '122', 'Content-Encoding': 'gzip'}
+b'{"pytanie": "Jak ma wygladac ten dokument?", "odpowiedz": "Pewnie moze zawierac cokolwiek", "liczba": 999, "boolean": false}'
+
+PRINT RETRIEVED MODIFIED DOCUMENT
+{'pytanie': 'Jak ma wygladac ten dokument?', 'odpowiedz': 'Pewnie moze zawierac cokolwiek', 'liczba': 999, 'boolean': False}
+
+DELETE DOCUMENT
+<Response [204]>
+{'Vary': 'Accept-Encoding', 'Server': 'MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)', 'Date': 'Wed, 16 Jun 2021 18:54:03 GMT', 'Content-Type': 'application/json', 'Content-Length': '0', 'Content-Encoding': 'gzip'}
+b''
+
+RETRIEVE DELETED DOCUMENT
+<Response [404]>
+{'X-Riak-Vclock': 'a85hYGBgzGDKBVI8+xkWvu9hOR/CwOCnlsGUyJzHynD6iN0tviwA', 'X-Riak-Deleted': 'true', 'Server': 'MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)', 'Date': 'Wed, 16 Jun 2021 18:54:03 GMT', 'Content-Type': 'text/plain', 'Content-Length': '10'}
+b'not found\n'
+

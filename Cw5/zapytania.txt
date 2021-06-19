@@ -1,0 +1,53 @@
+:play movie-graph
+// a => actor
+// m => movie
+// d => director
+
+// Zad 1
+MATCH (m:Movie) RETURN m
+
+// Zad 2
+MATCH (:Person {name:'Hugo Weaving'})-[:ACTED_IN]-> (m:Movie) RETURN m
+
+// Zad 3
+MATCH (:Person {name:'Hugo Weaving'})-[:ACTED_IN]-> (:Movie) <-[:DIRECTED]-(d:Person) RETURN DISTINCT d
+
+// Zad 4
+MATCH (:Person {name:'Hugo Weaving'})-[:ACTED_IN]-> (:Movie) <-[:ACTED_IN]-(a:Person) RETURN DISTINCT a
+
+// Zad 5
+MATCH (matrix:Movie) <-[:ACTED_IN]- (:Person) -[:ACTED_IN]-> (m:Movie) WHERE matrix.title CONTAINS 'Matrix' RETURN DISTINCT m
+
+// Zad 6
+MATCH (a:Person) -[:ACTED_IN]-> (m:Movie) RETURN a, count(m) as MoviesCount
+
+// Zad 7
+MATCH (a:Person) -[:WROTE]-> (m:Movie) <-[:DIRECTED]- (a:Person) RETURN a, m.title
+
+// Zad 8
+MATCH (:Person {name:'Hugo Weaving'})-[:ACTED_IN]-> (m:Movie), (:Person {name:'Keanu Reeves'})-[:ACTED_IN]-> (m:Movie) RETURN m
+
+// Zad 9
+// MERGE creates only if does not exist (CREATE can create duplication)
+
+// Zapytanie 1
+MERGE (CaptainAmerica:Movie {title:'Captain America: The First Avenger', released:2011, tagline:'When patriots become heroes'})
+
+MERGE (Johnston:Person {name:"Joe Johnston", born:1950})
+MERGE (Markus:Person {name:"Christopher Markus", born:1970})
+MERGE (McFeely:Person {name:"Stephen McFeely", born:1969})
+MERGE (Simon:Person {name:"Joe Simon", born:1913})
+MERGE (Evans:Person {name:"Chris Evans", born:1981})
+MERGE (Weaving:Person {name:"Hugo Weaving", born:1960})
+MERGE (Jackson:Person {name:"Samuel L. Jackson", born:1948})
+
+MERGE (Johnston)-[:DIRECTED]->(CaptainAmerica)
+MERGE (Markus)-[:WROTE]->(CaptainAmerica)
+MERGE (McFeely)-[:WROTE]->(CaptainAmerica)
+MERGE (Simon)-[:WROTE]->(CaptainAmerica)
+MERGE (Evans)-[:ACTED_IN {roles:['Captain America']}]->(CaptainAmerica)
+MERGE (Weaving)-[:ACTED_IN {roles:['Johann Schmidt']}]->(CaptainAmerica)
+MERGE (Jackson)-[:ACTED_IN {roles:['Nick Fury']}]->(CaptainAmerica)
+
+// Zapytanie 2
+MATCH (m:Movie {title:'Captain America: The First Avenger'}) -[r]- (p:Person) RETURN m, r, p

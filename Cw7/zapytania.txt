@@ -1,0 +1,37 @@
+// Zad 1
+curl.exe -i -XPUT -H "Content-Type: application/json" -d "{'name':'John', 'age':30, 'car':null, 'hair':'blond'}" http://localhost:8098/buckets/s15188/keys/A > wynik1.txt
+
+curl.exe -i -XPUT -H "Content-Type: application/json" -d "{'name':'Ania', 'age':22, 'car':'Mercedes', 'hair':'brown'}" http://localhost:8098/buckets/s15188/keys/B >> wynik1.txt
+
+curl.exe -i -XPUT -H "Content-Type: application/json" -d "{'name':'Andrzej', 'age':55, 'car':'Ford, 'hair':'green'}" http://localhost:8098/buckets/s15188/keys/C >> wynik1.txt
+
+curl.exe -i -XPUT -H "Content-Type: application/json" -d "{'name':'Adam', 'age':24, 'car':null, 'hair':'blond'}" http://localhost:8098/buckets/s15188/keys/D >> wynik1.txt
+
+curl.exe -i -XPUT -H "Content-Type: application/json" -d "{'name':'Kala', 'age':16, 'car':null, 'hair':'brown'}" http://localhost:8098/buckets/s15188/keys/E >> wynik1.txt
+
+// Zad 2
+curl.exe -i http://localhost:8098/buckets/s15188/keys/A > wynik2.txt
+
+// Zad 3
+curl.exe -i -XPUT -H "Content-Type: application/json" -d "{'name':'Ania', 'age':22, 'car':'Mercedes', 'hair':'brown', 'weight':50}" http://localhost:8098/buckets/s15188/keys/B > wynik3.txt
+
+// Zad 4
+curl.exe -i -XPUT -H "Content-Type: application/json" -d "{'name':'Andrzej', 'age':55, 'car':'Ford}" http://localhost:8098/buckets/s15188/keys/C > wynik4.txt
+
+// Zad 5
+curl.exe -i -XPUT -H "Content-Type: application/json" -d "{'name':'Adam', 'age':24, 'car':'Tesla', 'hair':'blond'}" http://localhost:8098/buckets/s15188/keys/D > wynik5.txt
+
+// Zad 6
+curl.exe -i -XDELETE http://localhost:8098/buckets/s15188/keys/E > wynik6.txt
+
+// Zad 7
+curl.exe -i http://localhost:8098/buckets/s15188/keys/G > wynik7.txt
+
+// Zad 8
+curl.exe -i -XPOST -H "Content-Type: application/json" -d "{'keyless':true}" http://localhost:8098/buckets/s15188/keys > wynik8.txt
+
+// Zad 9
+curl.exe -i http://localhost:8098/buckets/s15188/keys/ZV6W4aRjiEu068kHDjBJ1EVPZ4q > wynik9.txt
+
+// Zad 10
+curl.exe -i -XDELETE http://localhost:8098/buckets/s15188/keys/ZV6W4aRjiEu068kHDjBJ1EVPZ4q > wynik10.txt
